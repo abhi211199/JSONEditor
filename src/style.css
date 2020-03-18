@@ -1,0 +1,42 @@
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: left;
+    /* padding: 20px; */
+}
+
+#jsonEditor {
+    height: 90vh;
+    width: 50%;
+    float: left;
+    display: inline-block;
+}
+
+#jsonViewer{
+    height: 90vh;
+    /* margin-top: 20px; */
+    /* margin-left: 50%; */
+    width: 50%;
+    float: left;
+    display: inline-block;
+    /* border: 2px solid rgba(118, 184, 228, 0.418); */
+}
+
+#container{
+    display: inline-block;
+    width: 100%;
+}
+
+#tag{
+    margin-top: 40%;
+    align-items: center;
+    display: flex;
+    font-family: 'Courier New', Courier, monospace;
+    /* border: 2px solid black; */
+}
+
