@@ -2,11 +2,27 @@ const fs = require('fs');
 
 function create()
 {
+    const btns=document.getElementsByTagName("input");
+    flag=0;
+    for(i=0;i<btns.length;i++)
+    {
+        if(btns[i].checked==true)
+        {
+            flag=1
+            break;
+        }
+    }
+    if(flag==0)
+    {
+        alert("Please select some json files to create a cfg file!");
+        return;
+    }
+
     fs.mkdir('flint', { recursive: true }, (err) => {
         if (err) throw err;
     });
     var s=[];
-    const btns=document.getElementsByTagName("input");
+    
     for(i=0;i<btns.length;i++)
     {
         if(btns[i].checked==true)
@@ -21,6 +37,7 @@ function create()
     fs.writeFile('flint/gcbm_config.cfg', s, (err) => {
         if (err) throw err;
         console.log('The file has been saved!');
+        location.reload();
       });
     console.log(s);
 }
@@ -33,6 +50,7 @@ fs.access("flint/", fs.constants.F_OK, (err) => {
     }
     else
     {
+        readdir();
         document.getElementById("starter").style.display="none";
         document.getElementById("checker").style.display="block";
     }
@@ -63,6 +81,7 @@ function readdir()
 
 function openjson(imp)
 {
+    document.getElementById("ongoing").innerText="You are editing "+imp;
     readFile("flint/"+imp);
     flag=1;
     openFileName=imp;
@@ -80,7 +99,6 @@ function readFile(filepath){
     });
 }
 
-flag=0;
 
 function saveFile() {
     parsedJson = editor.get();
@@ -101,7 +119,7 @@ function writeFile(fileName){
 })
 }
 
-document.getElementById('startover').addEventListener('click',readdir);
+document.getElementById('startover').addEventListener('click',startover);
 document.getElementById('create').addEventListener('click',create);
 document.getElementById('btnSaveFile').addEventListener('click', saveFile);
 var editor = new JSONEditor(document.getElementById("jsonEditor"), {});

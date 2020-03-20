@@ -13,6 +13,7 @@ editor.innerHTML="enable_peatland:<input type='text' name='enable_peatland'><br>
 
 function add_object()
 {
+    for(i=0;i<document.getElementById("trno").value;i++)
     editor.innerHTML+=""+
    "<div class='transformdiv'>Name of the transform:<input type='text' name='inpi2'><br>Type of transform:<select id='transforms'><option value='LocationIdxFromFlintDataTransform'>LocationIdxFromFlintDataTransform</option><option value='SQLQueryTransform'>SQLQueryTransform</option><option value='CompositeTransform'>CompositeTransform</option><option value='TransitionRuleTransform'>TransitionRuleTransform</option><option value='GrowthCurveTransform'>GrowthCurveTransform</option></select><br>"+
    "library:<input type='text' name='library'><br>"+
