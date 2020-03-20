@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>JSON Editor GUI</title>
+	<link rel="stylesheet" type="text/css" href="cfg_style.css" />
+	
+	<!-- JSONEditor -->
+	<link href="../node_modules/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <script src="../node_modules/jsoneditor/dist/jsoneditor.min.js"></script>	
+  </head>
+  <body>
+	<h1>Create a CFG file which will be pointed by run_gcbm.bat</h1>
+	<div id="jsons">
+    <div id="json">
+      <p>variables.json</p>
+      <input type="checkbox" id="check" name="variables.json">
+    </div>
+
+    <div id="json">
+      <p>modules_cbm.json</p>
+      <input type="checkbox" id="check" name="modules_cbm.json">
+    </div>
+
+    <div id="json">
+      <p>localdomain.json</p>
+      <input type="checkbox" id="check" name="localdomain.json">
+    </div>
+
+    <div id="json">
+      <p>modules_output.json</p>
+      <input type="checkbox" id="check" name="modules_output.json">
+    </div>
+
+    <div id="json">
+      <p>pools_cbm.json</p>
+      <input type="checkbox" id="check" name="pools_cbm.json">
+    </div>
+
+    <div id="json">
+      <p>provider_config.json</p>
+      <input type="checkbox" id="check" name="provider_config.json">
+    </div>
+
+    <div id="json">
+      <p>spinup.json</p>
+      <input type="checkbox" id="check" name="spinup.json">
+    </div>
+
+    <div id="json">
+      <p>internal_variables.json</p>
+      <input type="checkbox" id="check" name="internal_variables.json">
+    </div>
+  </div>
+  <button id="create">Create cfg file</button>
+  <script src="./cfg_create.js"></script>
+  </body>
+
+</html>

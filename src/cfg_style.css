@@ -1,0 +1,11 @@
+#jsons{
+    display: inline-block;
+    width: 100%;
+}
+
+#json{
+    /* height: 90vh; */
+    width: 12.5%;
+    float: left;
+    display: inline-block;
+}
