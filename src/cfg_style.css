@@ -4,8 +4,11 @@
 }
 
 #json{
-    /* height: 90vh; */
     width: 12.5%;
     float: left;
     display: inline-block;
+}
+
+#checker{
+    display: none;
 }
