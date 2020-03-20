@@ -15,7 +15,7 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile('./src/cfg_creator.html');
+  mainWindow.loadFile('./src/variables.html');
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();

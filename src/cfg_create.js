@@ -63,10 +63,6 @@ function readdir()
 
 function openjson(imp)
 {
-    if(flag==1)
-    {
-        aler
-    }
     readFile("flint/"+imp);
     flag=1;
     openFileName=imp;
