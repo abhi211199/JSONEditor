@@ -24,6 +24,7 @@ li {
     width: 50%;
     float: left;
     display: inline-block;
+    overflow-y: scroll;
     /* border: 2px solid rgba(118, 184, 228, 0.418); */
 }
 

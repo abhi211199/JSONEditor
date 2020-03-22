@@ -28,7 +28,7 @@ function create()
         if(btns[i].checked==true)
         {
             s+="config="+btns[i].name+"\n";
-            fs.copyFile('templates/variables.json', 'flint/'+btns[i].name, (err) => {
+            fs.copyFile('templates/'+btns[i].name, 'flint/'+btns[i].name, (err) => {
                 if (err) throw err;
                 console.log('source.txt was copied to destination.txt');
             });
