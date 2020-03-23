@@ -15,10 +15,10 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile('./src/cfg_creator.html');
+  mainWindow.loadFile('./src/env.html');
 
   // Open the DevTools.
-//  mainWindow.webContents.openDevTools();
+ mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished

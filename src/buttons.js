@@ -52,17 +52,6 @@ function saveFile() {
 }
 
 function showJSON(){
-  
-  // console.log(JSON.stringify(editor.get(), null, 2));
-  // result =[]
-  // var bb=editor.get();
-  // bb["reporting_classifiers"]={'transform': {'allow_nulls': true,'type': 'CompositeTransform','library': 'internal.flint','vars': ['classifier_set']}};
-
-  // editor.set(bb);
-  // for(var i in editor.get())
-  //   console.log(i+editor.get()[i])
-  // console.log(result);
-  // console.log(JSON.parse(JSON.stringify(result,null,2)));
   document.getElementById("jsonViewer").innerHTML=JSON.stringify(editor.get(), null, 2);
 }
 

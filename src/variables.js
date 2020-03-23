@@ -1,8 +1,8 @@
 const fs = require('fs');
 var editor=document.getElementById("editor");
 
-editor.innerHTML="<div class='container'><div class='row'><div class='col-25'><label>enable_peatland:</label></div><div class='col-75'><input type='text' name='enable_peatland'></div></div><br>"+
-"<div class='row'><div class='col-25'><label>enable_moss:</label></div><div class='col-75'><input type='text' name='enable_moss'></div></div><br>"+
+editor.innerHTML="<div class='container'><div class='row'><div class='col-25'><label>enable_peatland:</label></div><div class='col-75'><input type='checkbox' name='enable_peatland'></div></div><br>"+
+"<div class='row'><div class='col-25'><label>enable_moss:</label></div><div class='col-75'><input type='checkbox' name='enable_moss'></div></div><br>"+
 "<div class='row'><div class='col-25'><label>admin_boundary:</label></div><div class='col-75'><input type='text' name='admin_boundary'></div></div><br>"+
 "<div class='row'><div class='col-25'><label>eco_boundary:</label></div><div class='col-75'><input type='text' name='eco_boundary'></div></div><br>"+
 "<div class='row'><div class='col-25'><label>initial_historic_land_class:</label></div><div class='col-75'><input type='text' name='initial_historic_land_class'></div></div><br>"+
@@ -36,6 +36,9 @@ function saveFile() {
     for(i=1;i<Math.max(inps.length,10);i++)
     {
         // console.log(inps[i].name+" "+inps[i].value);
+        if(inps[i].name=="enable_peatland" || inps[i].name=="enable_moss")
+        variables[inps[i].name]=inps[i].checked;
+        else
         variables[inps[i].name]=inps[i].value;
     }
     var inps2=document.getElementsByClassName('transformdiv');
