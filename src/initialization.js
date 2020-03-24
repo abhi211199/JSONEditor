@@ -18,3 +18,5 @@ function readFile(filepath){
 }
 
 var data = readFile("./src/newFileTemplate.json"); // Set an initial "blank" file
+
+

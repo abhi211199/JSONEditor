@@ -96,7 +96,7 @@ button {
   
   .col-75 {
     float: left;
-    width: 75%;
+    width: 70%;
     margin-top: 6px;
   }
   
@@ -118,3 +118,4 @@ button {
   #editor{
       /* margin-left: 20%; */
   }
+
