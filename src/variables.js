@@ -102,20 +102,20 @@ function change_transform(i)
     {
         if(document.getElementById("transforms"+i).value=="LocationIdxFromFlintDataTransform")
         {
-            document.getElementById("transf"+i).innerHTML="<div class='row'><div class='col-25'><label>library:</label></div><div class='col-75'><input type='text' name='library'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+            document.getElementById("transf"+i).innerHTML="<div class='row'><div class='col-25'><label>library:</label></div><div class='col-75'><input type='text' name='library' value='internal.flint' disabled></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
             "<div class='row'><div class='col-25'><label>provider:</label></div><div class='col-75'><input type='text' name='provider'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
             "<div class='row'><div class='col-25'><label>data_id:</label></div><div class='col-75'><input type='text' name='data_id'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>";
         }
         else if(document.getElementById("transforms"+i).value=="SQLQueryTransform")
         {
             document.getElementById("transf"+i).innerHTML="<div class='row'><div class='col-25'><label>queryString:</label></div><div class='col-75'><input type='text' name='queryString'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
-            "<div class='row'><div class='col-25'><label>library:</label></div><div class='col-75'><input type='text' name='library'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+            "<div class='row'><div class='col-25'><label>library:</label></div><div class='col-75'><input type='text' name='library' value='internal.flint' disabled></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
             "<div class='row'><div class='col-25'><label>provider:</label></div><div class='col-75'><input type='text' name='provider'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>";
         }
         else if(document.getElementById("transforms"+i).value=="CompositeTransform")
         {
             document.getElementById("transf"+i).innerHTML="<div class='row'><div class='col-25'><label>allow_nulls:</label></div><div class='col-75'><input type='checkbox' name='allow_nulls'></div></div><br>"+
-            "<div class='row'><div class='col-25'><label>library:</label></div><div class='col-75'><input type='text' name='library'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+            "<div class='row'><div class='col-25'><label>library:</label></div><div class='col-75'><input type='text' name='library' value='internal.flint' disabled></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
             "<div class='row'><div class='col-25'><label>vars(enter elements of the array in comma seperated manner):</label></div><div class='col-75'><input type='text' name='vars'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>";
         }
         else if(document.getElementById("transforms"+i).value=="GrowthCurveTransform")
