@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -15,7 +15,7 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile('./src/variables.html');
+  mainWindow.loadFile('./src/cfg_creator.html');
 
   // Open the DevTools.
  mainWindow.webContents.openDevTools();
@@ -45,3 +45,17 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+
+
+//open dialog for choosing pre-existing json and cfg
+ipcMain.on('open-file-dialog', (event) => {
+  dialog.showOpenDialog(require('electron').mainWindow, {
+    properties: ['openFile', 'openDirectory']
+  }).then(result => {
+    event.sender.send('selected-directory', result.filePaths)
+    console.log(result.filePaths)
+  }).catch(err => {
+    console.log(err)
+  })
+})

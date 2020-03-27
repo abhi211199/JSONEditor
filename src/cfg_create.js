@@ -1,4 +1,6 @@
 const fs = require('fs');
+const dialog = require('electron').remote.dialog;
+const {ipcRenderer} = require('electron');
 
 function create()
 {
@@ -119,7 +121,42 @@ function writeFile(fileName){
 })
 }
 
+function loadcfg()
+{
+    fs.mkdir('flint', { recursive: true }, (err) => {
+        if (err) throw err;
+    });
+    ipcRenderer.send('open-file-dialog')
+    ipcRenderer.on('selected-directory', (event, path) => {
+        fs.readdir( `${path}`,(err,files)=>{
+            if(err)
+            return;
+            else
+            {
+                for(i=0;i<files.length;i++)
+                {
+                    fs.copyFile(`${path}`+"/"+files[i],'flint/'+files[i],(err)=>{if(err)throw err;})
+                }
+            }
+        })
+        console.log(`You selected: ${path}`);
+      })
+}
+
+
+
+function openFile(){
+    dialog.showOpenDialog(require('electron').remote.BrowserWindow, {
+      properties: ['openDirectory']},dir =>{
+console.log(dir);
+      })
+    
+}
+
+
+
 document.getElementById('startover').addEventListener('click',startover);
 document.getElementById('create').addEventListener('click',create);
 document.getElementById('btnSaveFile').addEventListener('click', saveFile);
+document.getElementById('loadcfg').addEventListener('click', loadcfg);
 var editor = new JSONEditor(document.getElementById("jsonEditor"), {});
