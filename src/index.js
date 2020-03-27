@@ -15,7 +15,7 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile('./src/cfg_creator.html');
+  mainWindow.loadFile('./src/auth.html');
 
   // Open the DevTools.
  mainWindow.webContents.openDevTools();
@@ -59,3 +59,4 @@ ipcMain.on('open-file-dialog', (event) => {
     console.log(err)
   })
 })
+
