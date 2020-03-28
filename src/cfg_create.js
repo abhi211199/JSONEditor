@@ -123,11 +123,12 @@ function writeFile(fileName){
 
 function loadcfg()
 {
-    fs.mkdir('flint', { recursive: true }, (err) => {
-        if (err) throw err;
-    });
+    
     ipcRenderer.send('open-file-dialog')
     ipcRenderer.on('selected-directory', (event, path) => {
+        fs.mkdir('flint', { recursive: true }, (err) => {
+            if (err) throw err;
+        });
         fs.readdir( `${path}`,(err,files)=>{
             if(err)
             return;
@@ -139,8 +140,10 @@ function loadcfg()
                 }
             }
         })
+        location.reload();
         console.log(`You selected: ${path}`);
       })
+      
 }
 
 

@@ -31,6 +31,7 @@ function toggle()
 
 function signup()
 {
+  document.getElementById("sign").innerText="Signing Up!";
   var email=document.getElementById("email1").value;
   var pass1=document.getElementById("pass1").value;
   var pass2=document.getElementById("pass2").value;
@@ -48,6 +49,7 @@ function signup()
 
 function login()
 {
+  document.getElementById("log").innerText="Logging in!";
   var email=document.getElementById("email").value;
   var pass=document.getElementById("pass").value;
   firebase.auth().signInWithEmailAndPassword(email, pass).then(()=>{
@@ -85,6 +87,7 @@ async function uploadFile() {
   });
 
   console.log(`${filename} uploaded to ${bucketName}.`);
+  list();
 }
   uploadFile().catch(console.error);
 }
@@ -132,7 +135,7 @@ function download(name,obj)
 
   async function downloadFile() {
     const options = {
-      destination: "../flint.json",
+      destination: "flint/"+name,
     };
 
     // Downloads the file
@@ -164,7 +167,7 @@ function del(name,obj)
       .bucket(bucketName)
       .file(userid+"/"+name)
       .delete();
-    list();
+    // list();
     console.log(`gs://${bucketName} deleted.`);
   }
 
@@ -177,6 +180,7 @@ function upload1()
     ipcRenderer.on('selected', (event, path) => {
         upload(`${path}`,`${path}`.replace(/^.*[\\\/]/, ''));
       })
+    // list();
 }
 
 function upload2()
@@ -186,6 +190,7 @@ function upload2()
         up_read(`${path}`);
         console.log(`You selected: ${path}`);
       })
+  list();
 }
 
 // firebase.auth().onAuthStateChanged((user) => {
@@ -217,6 +222,8 @@ document.getElementById("sign").addEventListener("click",signup);
 document.getElementById("u1").addEventListener("click",upload1);
 document.getElementById("u2").addEventListener("click",upload2);
 document.getElementById("u3").addEventListener("click",signout);
+document.getElementById("u4").addEventListener("click",list);
+
 
 // signout();
 
@@ -228,5 +235,4 @@ if(user)
   document.getElementsByClassName("container")[0].style.display="none";
   document.getElementById("display").style.display="block";  
 }
-
 
