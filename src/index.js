@@ -15,7 +15,7 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile('./src/auth.html');
+  mainWindow.loadFile('./src/home.html');
 
   // Open the DevTools.
  mainWindow.webContents.openDevTools();
@@ -54,6 +54,17 @@ ipcMain.on('open-file-dialog', (event) => {
     properties: ['openFile', 'openDirectory']
   }).then(result => {
     event.sender.send('selected-directory', result.filePaths)
+    console.log(result.filePaths)
+  }).catch(err => {
+    console.log(err)
+  })
+})
+
+ipcMain.on('open-file', (event) => {
+  dialog.showOpenDialog(require('electron').mainWindow, {
+    properties: ['openFile']
+  }).then(result => {
+    event.sender.send('selected', result.filePaths)
     console.log(result.filePaths)
   }).catch(err => {
     console.log(err)
