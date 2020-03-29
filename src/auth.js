@@ -226,10 +226,6 @@ document.getElementById("u2").addEventListener("click",upload2);
 document.getElementById("u3").addEventListener("click",signout);
 document.getElementById("u4").addEventListener("click",list);
 
-
-// signout();
-
-
 var user=firebase.auth().currentUser;
 if(user)
 {
