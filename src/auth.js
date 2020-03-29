@@ -44,6 +44,7 @@ function signup()
   var errorCode = error.code;
   var errorMessage = error.message;
   alert("There was a glitch!");
+  document.getElementById("log").innerText="SignUp";
 });
 }
 
@@ -65,6 +66,7 @@ function login()
   var errorCode = error.code;
   var errorMessage = error.message;
   alert("There was a glitch!");
+  document.getElementById("log").innerText="LogIn";
   });
 }
 
