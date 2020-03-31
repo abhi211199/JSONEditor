@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "@google-cloud/storage": "^4.7.0",
+    "d3": "^5.15.0",
     "electron-squirrel-startup": "^1.0.0",
     "firebase": "^7.13.0",
     "grpc": "^1.24.2",
