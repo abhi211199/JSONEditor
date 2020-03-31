@@ -1,17 +1,19 @@
 const fs = require('fs');
+const {clipboard}=require('electron').remote;
+
 var editor=document.getElementById("editor");
 
 //adding base fields
 editor.innerHTML="<div class='container'><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i>"+
-"<div class='row'><div class='col-25'><label>enable_peatland:</label></div><div class='col-75'><input type='checkbox' name='enable_peatland'></div></div><br>"+
+"<div class='row'><div class='col-25'><label>enable_peatland:</label></div><div class='col-75'><input type='checkbox' name='enable_peatland' ></div></div><br>"+
 "<div class='row'><div class='col-25'><label>enable_moss:</label></div><div class='col-75'><input type='checkbox' name='enable_moss'></div></div><br>"+
-"<div class='row'><div class='col-25'><label>admin_boundary:</label></div><div class='col-75'><input type='text' name='admin_boundary'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
-"<div class='row'><div class='col-25'><label>eco_boundary:</label></div><div class='col-75'><input type='text' name='eco_boundary'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
-"<div class='row'><div class='col-25'><label>initial_historic_land_class:</label></div><div class='col-75'><input type='text' name='initial_historic_land_class'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
-"<div class='row'><div class='col-25'><label>initial_current_land_class:</label></div><div class='col-75'><input type='text' name='initial_current_land_class'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
-"<div class='row'><div class='col-25'><label>age_class_range:</label></div><div class='col-75'><input type='text' name='age_class_range'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
-"<div class='row'><div class='col-25'><label>age_maximum:</label></div><div class='col-75'><input type='text' name='age_maximum'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
-"<div class='row'><div class='col-25'><label>slow_ag_to_bg_mixing_rate:</label></div><div class='col-75'><input type='text' name='slow_ag_to_bg_mixing_rate'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div></div><br><br>";
+"<div class='row'><div class='col-25'><label>admin_boundary:</label></div><div class='col-75'><input type='text' name='admin_boundary' onkeyup='rt_menu(1,this.value)' onclick='rt_menu(1,this.value)' onfocus='rt_menu(1,this.value)'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+"<div class='row'><div class='col-25'><label>eco_boundary:</label></div><div class='col-75'><input type='text' name='eco_boundary' onkeyup='rt_menu(2,this.value)' onclick='rt_menu(2,this.value)' onfocus='rt_menu(2,this.value)'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+"<div class='row'><div class='col-25'><label>initial_historic_land_class:</label></div><div class='col-75'><input type='text' name='initial_historic_land_class' onkeyup='rt_menu(3,this.value)' onclick='rt_menu(3,this.value)' onfocus='rt_menu(3,this.value)'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+"<div class='row'><div class='col-25'><label>initial_current_land_class:</label></div><div class='col-75'><input type='text' name='initial_current_land_class' onkeyup='rt_menu(4,this.value)' onclick='rt_menu(4,this.value)' onfocus='rt_menu(4,this.value)'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+"<div class='row'><div class='col-25'><label>age_class_range:</label></div><div class='col-75'><input type='text' name='age_class_range' onkeyup='rt_menu(5,this.value)' onclick='rt_menu(5,this.value)' onfocus='rt_menu(5,this.value)'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+"<div class='row'><div class='col-25'><label>age_maximum:</label></div><div class='col-75'><input type='text' name='age_maximum' onkeyup='rt_menu(6,this.value)' onclick='rt_menu(6,this.value)' onfocus='rt_menu(6,this.value)'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div><br>"+
+"<div class='row'><div class='col-25'><label>slow_ag_to_bg_mixing_rate:</label></div><div class='col-75'><input type='text' name='slow_ag_to_bg_mixing_rate' onkeyup='rt_menu(7,this.value)' onclick='rt_menu(7,this.value)' onfocus='rt_menu(7,this.value)'></div><i class='fa fa-copy' style='font-size:24px'></i>  <i class='fa fa-paste' style='font-size:24px'></i></div></div><br><br>";
 
 //adding transfoms
 function add_object()
@@ -134,3 +136,24 @@ function change_transform(i)
 }
 document.getElementById("object").addEventListener('click',add_object);
 document.getElementById('btnSaveFile').addEventListener('click', saveFile);
+
+var id1,val1;
+
+function rt_menu(id,val)
+{
+    id1=id;val1=val;
+    console.log(id1+" "+val1);
+}
+
+const { remote } = require('electron')
+const { Menu, MenuItem } = remote
+
+const menu = new Menu()
+menu.append(new MenuItem({ label: 'Copy', click() {console.log(val1); clipboard.writeText(val1); } }))
+menu.append(new MenuItem({ type: 'separator' }))
+menu.append(new MenuItem({ label: 'Paste', click() {console.log(clipboard.readText());document.getElementsByTagName("input")[id1+2].value=clipboard.readText();} }))
+
+window.addEventListener('contextmenu', (e) => {
+  e.preventDefault()
+  menu.popup({ window: remote.getCurrentWindow() })
+}, false)
