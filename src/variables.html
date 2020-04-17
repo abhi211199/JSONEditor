@@ -5,15 +5,29 @@
     <title>JSON Editor GUI</title>
   <link rel="stylesheet" type="text/css" href="cfg_style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
-	<!-- JSONEditor -->
+  <link href="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/material-components-web@v4.0.0/dist/material-components-web.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
 	<link href="../node_modules/jsoneditor/dist/jsoneditor.min.css" rel="stylesheet" type="text/css">
     <script src="../node_modules/jsoneditor/dist/jsoneditor.min.js"></script>	
   </head>
   <body>
-    <a href="./home.html"><button>Go back</button></a>
+    <a href="./home.html"><button class="mdc-button mdc-button--raised">  <span class="mdc-button__ripple"></span> Go Back</button></a>
+
     <h1>Advanced editor to edit variables.json here!</h1>
-    <input type="text" placeholder="Enter number of transforms" id="trno"></input>
+    <div class="mdc-text-field mdc-text-field--outlined">
+      <input class="mdc-text-field__input" id="trno" type="text">
+      <div class="mdc-notched-outline">
+        <div class="mdc-notched-outline__leading"></div>
+        <div class="mdc-notched-outline__notch">
+          <label for="trno" class="mdc-floating-label">Enter number of transforms</label>
+        </div>
+        <div class="mdc-notched-outline__trailing"></div>
+      </div>
+    </div>
+    
+    <!-- <input type="text" placeholder="Enter number of transforms" id="trno"></input> -->
     <button id="object">Insert transforms</button>
 	  <button id="btnSaveFile" title="Save"><img src="../icons/Save32.png" /></button>
     <div id="editor"></div>

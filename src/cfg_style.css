@@ -1,3 +1,5 @@
+@import "../node_modules/@material/textfield/mdc-text-field.scss";
+
 #jsons{
     display: inline-block;
     width: 100%;
@@ -22,6 +24,7 @@ p{
 
 input{
     /* margin-left: 40%; */
+    width: 100%;
 }
 
 button {
@@ -119,3 +122,6 @@ button {
       /* margin-left: 20%; */
   }
 
+  .mdc-text-field{
+    width: 300px;
+  }
