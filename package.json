@@ -52,7 +52,7 @@
     "d3": "^5.15.0",
     "electron-squirrel-startup": "^1.0.0",
     "firebase": "^7.13.0",
-    "grpc": "^1.24.2",
+    "grpc": "^1.24.9",
     "jsoneditor": "^8.6.1",
     "material-components-web": "^5.1.0",
     "nodemon": "^2.0.2"
